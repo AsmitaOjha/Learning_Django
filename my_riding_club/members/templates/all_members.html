@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Tennis Club - List of all members
+{% endblock %}
+
+{% block content %}
+  <div class="mycard">
+    <h1>Members</h1>
+    <ul style="list-style-type: none; padding-left: 0;">
+      {% for x in mymembers %}
+        <li style="cursor: pointer; padding: 10px 0;">
+          <span style="padding: 5px; border-radius: 4px; transition: background-color 0.3s ease-in-out;" 
+                onclick="window.location = 'details/{{ x.slug }}'"
+                onmouseover="this.style.backgroundColor='orange';" 
+                onmouseout="this.style.backgroundColor='white';">
+            {{ x.firstname }} {{ x.lastname }}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
